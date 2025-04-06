@@ -1,0 +1,43 @@
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+gradle.settingsEvaluated {
+    val githubUsername =
+        settings.extra["GITHUB_USERNAME"] as? String ?: System.getenv("GITHUB_USERNAME")
+    val githubToken = settings.extra["GITHUB_TOKEN"] as? String ?: System.getenv("GITHUB_TOKEN")
+
+    enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+    dependencyResolutionManagement {
+        repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+        repositories {
+            google()
+            mavenCentral()
+
+            maven {
+                name = "GitHub"
+                url = uri("https://maven.pkg.github.com/mobileguruvn/rider-auth")
+                credentials {
+                    username = githubUsername
+                    password = githubToken
+                }
+            }
+        }
+    }
+}
+
+rootProject.name = "RiderAuth"
+include(":app")
+include(":auth-impl")
+include(":auth-contract")
