@@ -1,4 +1,4 @@
-package com.brian.auth_impl
+package com.brian.auth_impl.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

@@ -1,7 +1,7 @@
 package com.brian.auth_impl.di
 
 import com.brian.auth_contract.AuthNavigator
-import com.brian.auth_impl.AuthNavigatorImpl
+import com.brian.auth_impl.navigation.AuthNavigatorImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
