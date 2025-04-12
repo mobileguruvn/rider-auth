@@ -16,6 +16,7 @@ gradle.settingsEvaluated {
     val githubUsername =
         settings.extra["GITHUB_USERNAME"] as? String ?: System.getenv("GITHUB_USERNAME")
     val githubToken = settings.extra["GITHUB_TOKEN"] as? String ?: System.getenv("GITHUB_TOKEN")
+    val githubMavenUrl: String? = providers.gradleProperty("GITHUB_MAVEN_URL").orNull
 
     enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
@@ -27,7 +28,7 @@ gradle.settingsEvaluated {
 
             maven {
                 name = "GitHub"
-                url = uri("https://maven.pkg.github.com/mobileguruvn/rider-auth")
+                url = uri(githubMavenUrl ?: System.getenv("GITHUB_MAVEN_URL"))
                 credentials {
                     username = githubUsername
                     password = githubToken

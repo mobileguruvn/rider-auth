@@ -48,7 +48,7 @@ apply(from = "$rootDir/gradle/publish-module.gradle.kts")
 
 
 dependencies {
-    implementation("com.ridertracker:auth-contract:1.0.1")
+    implementation(libs.auth.contract)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)

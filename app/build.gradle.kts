@@ -42,8 +42,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":auth-contract"))
-    implementation(project(":auth-impl"))
+    implementation(libs.auth.contract)
+    implementation(libs.auth.impl)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
