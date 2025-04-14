@@ -11,11 +11,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.brian.auth_contract.AuthNavigator
+import com.brian.auth_impl.navigation.AuthRoutes
 
 @Composable
 fun AppNavigation(authNavigator: AuthNavigator) {
     val navController = rememberNavController()
-    NavHost(navController, startDestination = "login") {
+    NavHost(navController, startDestination = AuthRoutes.Login.route) {
         with(authNavigator.authGraph {
             navController.navigate("home")
         }) {

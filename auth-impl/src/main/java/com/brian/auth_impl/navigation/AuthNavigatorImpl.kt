@@ -8,6 +8,6 @@ import javax.inject.Inject
 
 class AuthNavigatorImpl @Inject constructor() : AuthNavigator {
     override fun authGraph(onLoginSuccess: () -> Unit): NavGraphBuilder.() -> Unit = {
-        composable("login") { LoginScreen(onLoginSuccess) }
+        composable(AuthRoutes.Login.route) { LoginScreen(onLoginSuccess) }
     }
 }
