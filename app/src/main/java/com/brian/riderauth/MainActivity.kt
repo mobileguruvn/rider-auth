@@ -37,8 +37,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Surface(modifier = Modifier.fillMaxSize()) {
-                RiderAuthTheme {
+            RiderAuthTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
                     AppNavigation(authNavigator)
                 }
             }
